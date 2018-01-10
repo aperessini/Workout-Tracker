@@ -1,0 +1,49 @@
+<body>
+  <div>
+    <form>
+	Workout Name: <input type="text" id="name" value="">
+	<br>Number of reps: <input type="number" id="reps" value="">
+	<br>Weight used: <input type="number" id="weight" value="">
+	<br>Date performed(yyyy-mm-dd): <input type="text" id="date" value="">
+	<br><input type="radio" id="lbs" name="lbs" value=1> LB<br>
+	<input type="radio" id="lbs" name="lbs" value=0> KG<br>
+	<input type="submit" id="addWorkout" value="Add Workout">
+	<input type="hidden" id="deleteWorkout">
+	<input type="hidden" id="editWorkout">
+    </form>
+  </div>
+	<br>
+    	<div>
+	<table id="tracker">
+     
+
+			<tr id="tablehead">
+				<th>Workout Name</th>
+				<th>Reps</th>
+				<th>Weight Used</th>
+				<th>Date Performed</th>
+				<th>LB/KG</th>
+			</tr>
+
+			{{#each results}}
+			<tr>
+				<td>{{this.name}}</td>
+				<td>{{this.reps}}</td>
+				<td>{{this.weight}}</td>
+				<td>{{this.date}}</td>
+				<td>{{this.lbs}}</td>
+			</tr>
+
+				{{/each}}	
+
+    </table> 
+	</div> 
+
+</body>
+
+<script src="/js/addWorkout.js"></script>
+{{!<script src="/js/jquery.min.js"></script>}}
+{{!<script src="/js/skel.min.js"></script>}}
+{{!<script src="/js/util.js"></script>}}
+{{!<script src="/js/main.js"></script>}}
+
