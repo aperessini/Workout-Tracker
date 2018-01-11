@@ -17,12 +17,14 @@ for(var x = 0; x < c.length; x++)
 }
 
 var count = 1;
+var hostname = "http://localhost:";
+var port = "5100";
 
 function bindButtons(){
         document.getElementById('addWorkout').addEventListener('click', function(event){
           //var count = 1;
-	  console.log(count);
-	  count++; 
+	  //console.log(count);
+	  //count++; 
           var req = new XMLHttpRequest();
           var name = document.getElementById('name').value;
           if(name == "")
@@ -43,7 +45,7 @@ function bindButtons(){
           }
     
           //req.setRequestHeader('Content-Type', 'text/plain');
-          req.open('GET', "http://localhost:5100/insert?name=" + name + "&reps=" + reps + "&weight=" + weight + "&date=" + date + "&lbs=" + lbs, true);
+          req.open('GET', hostname + port + "/insert?name=" + name + "&reps=" + reps + "&weight=" + weight + "&date=" + date + "&lbs=" + lbs, true);
           req.addEventListener("load", function(event){
           if(req.status >= 200 && req.status < 400)
           {
@@ -109,7 +111,7 @@ function bindButtons(){
               
                           
          });
-	 console.log("Yoooooooo");
+	 //console.log("Yoooooooo");
          //event.preventDefault();  
          req.send(null); 
          event.preventDefault();          
@@ -155,7 +157,7 @@ function callDeleteWorkout(event){
                 var req = new XMLHttpRequest();
                 console.log(event.target.parentNode.textContent);
                 var id = event.target.parentNode.firstElementChild.textContent;
-                req.open('GET', "http://flip1.engr.oregonstate.edu:5100/delete?id=" + id, true);
+                req.open('GET', hostname + port + "/delete?id=" + id, true);
                 req.addEventListener("load", function(){
                 if(req.status >= 200 && req.status < 400)
                 {
@@ -288,7 +290,7 @@ function callEditWorkout(event){
                 {
                     lbs = 0;
                 }
-                req.open('GET', "http://flip1.engr.oregonstate.edu:5100/safe-update?id=" + id + "&name=" + name + "&reps=" + reps + "&weight=" + weight + "&date=" + date + "&lbs=" + lbs, true);
+                req.open('GET', hostname + port + "/safe-update?id=" + id + "&name=" + name + "&reps=" + reps + "&weight=" + weight + "&date=" + date + "&lbs=" + lbs, true);
                 req.addEventListener("load", function(){
                 if(req.status >= 200 && req.status < 400)
                 {
