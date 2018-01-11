@@ -43,7 +43,7 @@ function bindButtons(){
           }
     
           //req.setRequestHeader('Content-Type', 'text/plain');
-          req.open('GET', "http://flip1.engr.oregonstate.edu:5100/insert?name=" + name + "&reps=" + reps + "&weight=" + weight + "&date=" + date + "&lbs=" + lbs, true);
+          req.open('GET', "http://localhost:5100/insert?name=" + name + "&reps=" + reps + "&weight=" + weight + "&date=" + date + "&lbs=" + lbs, true);
           req.addEventListener("load", function(event){
           if(req.status >= 200 && req.status < 400)
           {

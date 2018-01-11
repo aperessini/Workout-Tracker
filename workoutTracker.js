@@ -13,6 +13,7 @@ var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
+app.set('views', './views');
 app.set('port', 5100);
 app.use(express.static('assets'));
 
@@ -50,7 +51,7 @@ app.get('/insert',function(req,res,next){
       next(err);
       return;
     }
-    console.log("Inserted");
+    //console.log("Inserted");
     //context.results = result.insertId;
     //console.log(context.results); 
    // res.send(context.results.toString()); 
