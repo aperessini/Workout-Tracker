@@ -10,7 +10,7 @@ var mysql = require('./dbcon2.js');
 
 var app = express();
 var server = app.listen(5100, function(){
-  var host = server.addres().address;
+  var host = server.address().address;
   var port = server.address().port;
   console.log('running at http://' + host + ':' + port);
 
