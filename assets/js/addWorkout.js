@@ -17,8 +17,8 @@ for(var x = 0; x < c.length; x++)
 }
 
 var count = 1;
-var hostname = "http://localhost:";
-var port = "5100";
+var hostname = "http://flip2.engr.oregonstate.edu:";
+var port = "5300";
 
 function bindButtons(){
         document.getElementById('addWorkout').addEventListener('click', function(event){
@@ -45,7 +45,7 @@ function bindButtons(){
           }
     
           //req.setRequestHeader('Content-Type', 'text/plain');
-          req.open('GET', hostname + port + "/insert?name=" + name + "&reps=" + reps + "&weight=" + weight + "&date=" + date + "&lbs=" + lbs, true);
+          req.open('GET', "" + hostname + "" + port + "/insert?name=" + name + "&reps=" + reps + "&weight=" + weight + "&date=" + date + "&lbs=" + lbs, true);
           req.addEventListener("load", function(event){
           if(req.status >= 200 && req.status < 400)
           {
