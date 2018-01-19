@@ -59,9 +59,6 @@ function bindButtons(){
               var newWeight = document.createElement("td");
               newWeight.textContent = response[response.length-1].weight;
               newRow.appendChild(newWeight);
-              var newDate = document.createElement("td");
-              newDate.textContent = response[response.length-1].date.substring(0,10);
-              newRow.appendChild(newDate);
               var newLbs = document.createElement("td");
               if(response[response.length-1].lbs == 1){
                 newLbs.textContent = "LB";
@@ -71,6 +68,10 @@ function bindButtons(){
               }
               
               newRow.appendChild(newLbs);
+
+	      var newDate = document.createElement("td");
+              newDate.textContent = response[response.length-1].date.substring(0,10);
+              newRow.appendChild(newDate);
               
 
               var customizeForm = document.createElement("form");
@@ -221,12 +222,6 @@ function callEditWorkout(event){
         weight.textContent = 'Weight';
         curElem = curElem.nextElementSibling;
         editForm.appendChild(weight);
-        var date = document.createElement("input");
-        date.type = 'text';
-        date.value = curElem.textContent;
-        date.textContent = 'Date Performed';
-        curElem = curElem.nextElementSibling;
-        editForm.appendChild(date);
         var lb = document.createElement("input");
         lb.type = 'radio';
         lb.name = 'lbs';
@@ -240,11 +235,16 @@ function callEditWorkout(event){
         var units = document.createElement('input');
         units.type = 'hidden'
         units.value = curElem.textContent;
-      
-        editForm.appendChild(lb);
+	editForm.appendChild(lb);
         editForm.appendChild(kg);
         editForm.appendChild(units);
-
+	curElem = curElem.nextElementSibling;
+	var date = document.createElement("input");
+        date.type = 'text';
+        date.value = curElem.textContent;
+        date.textContent = 'Date Performed';
+        editForm.appendChild(date);
+      
         var updateButton = document.createElement('input');
         updateButton.type = 'submit';
         updateButton.value= 'Update Workout';
@@ -267,9 +267,6 @@ function callEditWorkout(event){
                 curElem = curElem.nextElementSibling;
                 var weight = curElem.value;
                 curElem = curElem.nextElementSibling;
-                var date = curElem.value;
-                curElem = curElem.nextElementSibling;
-
                 var lbs;
                 if(curElem.nextElementSibling.nextElementSibling.value == 'LB')
                 {
@@ -288,6 +285,9 @@ function callEditWorkout(event){
                 {
                     lbs = 0;
                 }
+		curElem = curElem.nextElementSibling.nextElementSibling.nextElementSibling;
+		var date = curElem.value;
+               	
                 req.open('GET', "http://flip1.engr.oregonstate.edu:5100/safe-update?id=" + id + "&name=" + name + "&reps=" + reps + "&weight=" + weight + "&date=" + date + "&lbs=" + lbs, true);
                 req.addEventListener("load", function(){
                 if(req.status >= 200 && req.status < 400)
@@ -311,14 +311,14 @@ function callEditWorkout(event){
                             curElem = curElem.nextElementSibling;
                             curElem.textContent = response[x].weight;
                             curElem = curElem.nextElementSibling;
-                            curElem.textContent = response[x].date.substring(0,10);
-                            curElem = curElem.nextElementSibling;
                             if(response[x].lbs == 1){
                                 curElem.textContent = "LB";
                             }
                             else if(response[x].lbs == 0){
                                 curElem.textContent = "KG";
                             }
+			    curElem = curElem.nextElementSibling;
+                            curElem.textContent = response[x].date.substring(0,10);
                         }
                     }
 
