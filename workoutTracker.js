@@ -6,7 +6,7 @@ CS 290
  */
 
 var express = require('express');
-var mysql = require('./dbcon.js');
+var mysql = require('./dbcon2.js');
 
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
