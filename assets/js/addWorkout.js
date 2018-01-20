@@ -22,9 +22,6 @@ var port = ""; //document.getElementById('port').value;
 
 function bindButtons(){
         document.getElementById('addWorkout').addEventListener('click', function(event){
-          //var count = 1;
-	  //console.log(count);
-	  //count++; 
           var req = new XMLHttpRequest();
           var name = document.getElementById('name').value;
           if(name == "")
