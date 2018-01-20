@@ -9,12 +9,12 @@ var express = require('express');
 var mysql = require('./dbcon2.js');
 
 var app = express();
-var server = app.listen(5100, function(){
+/*var server = app.listen(5100, function(){
   var host = server.address().address;
   var port = server.address().port;
   console.log('running at http://' + host + ':' + port);
 
-});
+});*/
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 var cors = require('cors');
 app.use(cors());
@@ -22,7 +22,7 @@ app.use(cors());
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('views', './views');
-app.set('port', 5100);
+app.set('port', 6100);
 app.use(express.static('assets'));
 /*app.use(function(req, res, next){
   res.header("Access-Control-Allow-Origin", '*');
