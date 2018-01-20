@@ -47,7 +47,7 @@ app.get('/',function(req,res,next){
     "date DATE," +
     "lbs BOOLEAN)";
     mysql.pool.query(createString, function(err){
-      //context.results = "Table reset";
+      context.port = port;
       res.render('home',context);
     });
   });
