@@ -16,8 +16,8 @@ var app = express();
 
 });*/
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
-//var cors = require('cors');
-//app.use(cors());
+var cors = require('cors');
+app.use(cors());
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
