@@ -22,8 +22,12 @@ app.use(cors());
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('views', './views');
-app.set('port', 6100);
+//app.set('port', 6100);
+var port = Number(process.env.PORT || 8000);
 app.use(express.static('assets'));
+var server = app.listen(port, function() {
+	console.log('Listening on port' + server.address().port);
+});
 /*app.use(function(req, res, next){
   res.header("Access-Control-Allow-Origin", '*');
   res.header("Access-Control-Allow-Credentials", true);
