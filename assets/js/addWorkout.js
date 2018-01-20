@@ -17,14 +17,13 @@ for(var x = 0; x < c.length; x++)
 }
 
 var count = 1;
-var hostname = "http://flip2.engr.oregonstate.edu:";
-var port = "5300";
+
+var hostname = "http://workout-tracker-peressini.herokuapp.com"; ////localhost:
+var port = ""; //document.getElementById('port').value;
+
 
 function bindButtons(){
         document.getElementById('addWorkout').addEventListener('click', function(event){
-          //var count = 1;
-	  //console.log(count);
-	  //count++; 
           var req = new XMLHttpRequest();
           var name = document.getElementById('name').value;
           if(name == "")

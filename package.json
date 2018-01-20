@@ -1,0 +1,30 @@
+{
+  "name": "workout-tracker",
+  "version": "1.0.0",
+  "description": "App to track workout",
+  "main": "workoutTracker.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node workoutTracker.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "handlebars": "^4.0.11",
+    "mysql": "^2.15.0"
+  },
+  "engines": {
+    "node": "6.12.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aperessini/Workout-Tracker.git"
+  },
+  "author": "Aaron Peressini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aperessini/Workout-Tracker/issues"
+  },
+  "homepage": "https://github.com/aperessini/Workout-Tracker#readme"
+}

@@ -6,16 +6,38 @@ CS 290
  */
 
 var express = require('express');
-var mysql = require('./dbcon.js');
+var mysql = require('./dbcon3.js');
 
 var app = express();
+/*var server = app.listen(5100, function(){
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log('running at http://' + host + ':' + port);
+
+});*/
 var handlebars = require('express-handlebars').create({defaultLayout:'main'});
+var cors = require('cors');
+app.use(cors());
 
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('views', './views');
-app.set('port', 5300);
+
+//app.set('port', 6100);
+var port = Number(process.env.PORT || 8000);
+
 app.use(express.static('assets'));
+var server = app.listen(port, function() {
+	console.log('Listening on port ' + server.address().port);
+});
+/*app.use(function(req, res, next){
+  res.header("Access-Control-Allow-Origin", '*');
+  res.header("Access-Control-Allow-Credentials", true);
+  res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE,OPTIONS');
+  res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+  next();
+});*/
+
 
 app.get('/',function(req,res,next){
   var context = {};
@@ -28,7 +50,7 @@ app.get('/',function(req,res,next){
     "date DATE," +
     "lbs BOOLEAN)";
     mysql.pool.query(createString, function(err){
-      //context.results = "Table reset";
+      context.port = port; //app.get('port');
       res.render('home',context);
     });
   });
