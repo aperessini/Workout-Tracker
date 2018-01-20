@@ -18,7 +18,7 @@ for(var x = 0; x < c.length; x++)
 
 var count = 1;
 var hostname = "https://whispering-ocean-26663.herokuapp.com:";
-var port = document.getElementById('port').value;
+var port = ""; //document.getElementById('port').value;
 
 function bindButtons(){
         document.getElementById('addWorkout').addEventListener('click', function(event){
