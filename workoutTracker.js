@@ -22,12 +22,12 @@ var handlebars = require('express-handlebars').create({defaultLayout:'main'});
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('views', './views');
-app.set('port', 6100);
-//var port = Number(process.env.PORT || 8000);
+//app.set('port', 6100);
+var port = Number(process.env.PORT || 8000);
 app.use(express.static('assets'));
-/*var server = app.listen(port, function() {
+var server = app.listen(port, function() {
 	console.log('Listening on port ' + server.address().port);
-});*/
+});
 /*app.use(function(req, res, next){
   res.header("Access-Control-Allow-Origin", '*');
   res.header("Access-Control-Allow-Credentials", true);
@@ -48,7 +48,7 @@ app.get('/',function(req,res,next){
     "date DATE," +
     "lbs BOOLEAN)";
     mysql.pool.query(createString, function(err){
-      context.port = app.get('port');
+      context.port = port; //app.get('port');
       res.render('home',context);
     });
   });
