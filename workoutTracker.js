@@ -35,7 +35,7 @@ var server = app.listen(port, function() {
   res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
   next();
 });*/
-console.log(app.path());
+
 
 app.get('/',function(req,res,next){
   var context = {};
