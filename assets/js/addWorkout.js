@@ -17,7 +17,7 @@ for(var x = 0; x < c.length; x++)
 }
 
 var count = 1;
-var hostname = "http://whispering-ocean-26663.herokuapp.com"; ////localhost:
+var hostname = "http://workout-tracker-peressini.herokuapp.com"; ////localhost:
 var port = ""; //document.getElementById('port').value;
 
 function bindButtons(){
