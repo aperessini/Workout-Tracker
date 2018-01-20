@@ -17,7 +17,7 @@ for(var x = 0; x < c.length; x++)
 }
 
 var count = 1;
-var hostname = ""; //"whispering-ocean-26663.herokuapp.com";
+var hostname = "whispering-ocean-26663.herokuapp.com";
 var port = ""; //document.getElementById('port').value;
 
 function bindButtons(){
